@@ -1,8 +1,7 @@
 import React from "react";
+
 import AppRoutes from "./src/presentation/routes";
-import theme from "./src/presentation/styles/theme";
-import { RepositoryProvider } from "./src/presentation/context/repository";
-import { ThemeProvider } from "styled-components";
+import AppProvider from "./src/presentation/providers";
 
 import { 
   useFonts,
@@ -25,10 +24,8 @@ export default function App() {
   if (!fontsLoaded) return <></>;
 
   return (
-    <ThemeProvider theme={theme}>
-      <RepositoryProvider>
+    <AppProvider>
         <AppRoutes />
-      </RepositoryProvider>
-    </ThemeProvider>
+    </AppProvider>
   );
 }
